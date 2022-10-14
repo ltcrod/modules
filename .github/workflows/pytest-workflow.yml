@@ -13,7 +13,7 @@ jobs:
       # Expose matched filters as job 'modules' output variable
       modules: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: dorny/paths-filter@v2
         id: filter
@@ -34,7 +34,7 @@ jobs:
     env:
       NXF_ANSI_LOG: false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -71,7 +71,7 @@ jobs:
         with:
           singularity-version: 3.7.1
 
-      - name: Setup miniconda
+      - name: Set up miniconda
         if: matrix.profile == 'conda'
         uses: conda-incubator/setup-miniconda@v2
         with:
